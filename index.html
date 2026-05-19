@@ -4,27 +4,55 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teste</title>
+<title>Signum Fidei</title>
 
 <style>
 
 body{
   margin:0;
   background:black;
+  overflow-x:hidden;
 }
+
+/* CONTEÚDO */
 
 .conteudo img{
   width:100%;
   display:block;
 }
 
+/* MENU INFERIOR FIXO */
+
 .menu{
   position:fixed;
   bottom:0;
   width:100%;
+  z-index:1000;
 }
 
 .menu img{
+  width:100%;
+  display:block;
+}
+
+/* MENU SUPERIOR */
+
+.topo{
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+
+  z-index:2000;
+
+  opacity:0;
+
+  transition:0.4s;
+}
+
+.topo img{
   width:100%;
   display:block;
 }
@@ -34,13 +62,55 @@ body{
 
 <body>
 
-<div class="conteudo">
-  <img src="conteudo.png">
+<!-- MENU SUPERIOR -->
+
+<div class="topo" id="topo">
+
+  <img src="topo.png">
+
 </div>
 
-<div class="menu">
-  <img src="menu.png">
+<!-- CONTEÚDO -->
+
+<div class="conteudo">
+
+  <img src="conteudo.png">
+
 </div>
+
+<!-- MENU INFERIOR -->
+
+<div class="menu">
+
+  <img src="menu.png">
+
+</div>
+
+<script>
+
+/* PEGA O MENU SUPERIOR */
+
+const topo = document.getElementById("topo");
+
+/* DETECTA O SCROLL */
+
+window.addEventListener("scroll", function(){
+
+  /* QUANTO MAIS DESCE, MAIS APARECE */
+
+  if(window.scrollY > 50){
+
+    topo.style.opacity = "1";
+
+  }else{
+
+    topo.style.opacity = "0";
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
