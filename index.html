@@ -92,24 +92,24 @@ body{
 
 const topo = document.getElementById("topo");
 
-/* DETECTA O SCROLL */
-
 window.addEventListener("scroll", function(){
 
-  /* QUANTO MAIS DESCE, MAIS APARECE */
+  let scroll = window.scrollY;
 
-  if(window.scrollY > 50){
+  /* VELOCIDADE DO FADE */
 
-    topo.style.opacity = "1";
+  let opacity = scroll / 200;
 
-  }else{
+  /* LIMITE */
 
-    topo.style.opacity = "0";
-
+  if(opacity > 1){
+    opacity = 1;
   }
 
-});
+  topo.style.opacity = opacity;
 
+});
+  
 </script>
 
 </body>
