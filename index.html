@@ -9,52 +9,82 @@
 <style>
 
 body{
-  margin:0;
-  background:black;
-  overflow-x:hidden;
+margin:0;
+background:black;
+overflow-x:hidden;
 }
 
 /* CONTEÚDO */
 
 .conteudo img{
-  width:100%;
-  display:block;
+width:100%;
+display:block;
 }
 
 /* MENU INFERIOR FIXO */
 
 .menu{
-  position:fixed;
-  bottom:0;
-  width:100%;
-  z-index:1000;
+position:fixed;
+bottom:0;
+width:100%;
+z-index:1000;
 }
 
 .menu img{
-  width:100%;
-  display:block;
+width:100%;
+display:block;
 }
 
 /* MENU SUPERIOR */
 
 .topo{
-  position:fixed;
+position:fixed;
 
-  top:0;
-  left:0;
+top:0;
+left:0;
 
-  width:100%;
+width:100%;
 
-  z-index:2000;
+z-index:2000;
 
-  opacity:0;
+opacity:0;
 
-  transition:0.4s;
+transition:0.4s;
 }
 
 .topo img{
-  width:100%;
-  display:block;
+width:100%;
+display:block;
+}
+
+/* SLIDER HORIZONTAL */
+
+.slider{
+
+width:100%;
+
+overflow-x:scroll;
+
+overflow-y:hidden;
+
+white-space:nowrap;
+
+padding:20px 0;
+
+}
+
+/* ESCONDE BARRA */
+
+.slider::-webkit-scrollbar{
+display:none;
+}
+
+.slider img{
+
+height:180px;
+
+display:block;
+
 }
 
 </style>
@@ -66,7 +96,7 @@ body{
 
 <div class="topo" id="topo">
 
-  <img src="topo.png">
+<img src="topo.png">
 
 </div>
 
@@ -74,7 +104,15 @@ body{
 
 <div class="conteudo">
 
-  <img src="conteudo.png">
+<img src="conteudo.png">
+
+<!-- SLIDER -->
+
+<div class="slider">
+
+<img src="slider.png">
+
+</div>
 
 </div>
 
@@ -82,7 +120,7 @@ body{
 
 <div class="menu">
 
-  <img src="menu.png">
+<img src="menu.png">
 
 </div>
 
@@ -94,24 +132,24 @@ const topo = document.getElementById("topo");
 
 window.addEventListener("scroll", function(){
 
-  let scroll = window.scrollY;
+let scroll = window.scrollY;
 
-  /* VELOCIDADE DO FADE */
+/* VELOCIDADE DO FADE */
 
-  let opacity = (scroll - 50) / 100;
+let opacity = (scroll - 50) / 100;
 
 if(opacity < 0){
-  opacity = 0;
+opacity = 0;
 }
 
 if(opacity > 1){
-  opacity = 1;
+opacity = 1;
 }
 
-  topo.style.opacity = opacity;
+topo.style.opacity = opacity;
 
 });
-  
+
 </script>
 
 </body>
