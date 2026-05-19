@@ -98,13 +98,15 @@ window.addEventListener("scroll", function(){
 
   /* VELOCIDADE DO FADE */
 
-  let opacity = scroll / 150;
+  let opacity = (scroll - 50) / 100;
 
-  /* LIMITE */
+if(opacity < 0){
+  opacity = 0;
+}
 
-  if(opacity > 1){
-    opacity = 1;
-  }
+if(opacity > 1){
+  opacity = 1;
+}
 
   topo.style.opacity = opacity;
 
